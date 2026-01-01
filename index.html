@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>吉他可视化工具</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="app__eyebrow">Guitar Visualization</p>
+          <h1>吉他音阶可视化</h1>
+          <p class="app__subtitle">选择调式与显示方式，完整呈现 24 品音位。</p>
+        </div>
+        <div class="app__controls">
+          <label class="control">
+            <span>Key</span>
+            <select id="keySelect">
+              <option value="C">C</option>
+              <option value="C#">C#</option>
+              <option value="D">D</option>
+              <option value="D#">D#</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+              <option value="F#">F#</option>
+              <option value="G">G</option>
+              <option value="G#">G#</option>
+              <option value="A">A</option>
+              <option value="A#">A#</option>
+              <option value="B">B</option>
+            </select>
+          </label>
+          <label class="control">
+            <span>模式</span>
+            <select id="modeSelect">
+              <option value="major">Major</option>
+              <option value="minor">Minor</option>
+            </select>
+          </label>
+          <label class="control">
+            <span>音阶</span>
+            <select id="scaleSelect">
+              <option value="heptatonic">基础 7 音</option>
+              <option value="pentatonic">五声音阶</option>
+            </select>
+          </label>
+          <label class="control">
+            <span>显示</span>
+            <select id="displaySelect">
+              <option value="note">固定音名</option>
+              <option value="degree">数字级数</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <section class="fretboard" aria-live="polite">
+        <div class="fretboard__legend" id="fretLegend"></div>
+        <div class="fretboard__grid" id="fretGrid"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
