@@ -56,6 +56,33 @@
         </div>
       </header>
 
+      <section class="ear-training">
+        <div class="ear-training__header">
+          <h2>练耳训练 <span class="ear-training__subtitle">Ear Training</span></h2>
+          <label class="control ear-training__toggle">
+            <input type="checkbox" id="earTrainingMode" />
+            <span>启用练耳模式</span>
+          </label>
+        </div>
+        <div class="ear-training__controls" id="earTrainingControls" style="display: none;">
+          <div class="ear-training__exercise">
+            <label class="control">
+              <span>练习类型</span>
+              <select id="exerciseType">
+                <option value="findNote">找音符 (Find the Note)</option>
+                <option value="findDegree">找级数 (Find Scale Degree)</option>
+                <option value="echoMotif">重复旋律 (Echo Motif)</option>
+              </select>
+            </label>
+            <button class="btn btn--primary" id="playExercise">播放</button>
+          </div>
+          <div class="ear-training__feedback" id="feedback"></div>
+          <div class="ear-training__stats">
+            <span id="stats">正确: 0 | 错误: 0</span>
+          </div>
+        </div>
+      </section>
+
       <section class="fretboard" aria-live="polite">
         <div class="fretboard__legend" id="fretLegend"></div>
         <div class="fretboard__grid" id="fretGrid"></div>
