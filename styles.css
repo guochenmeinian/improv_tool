@@ -50,15 +50,32 @@ h1 {
 }
 
 .app__controls {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   min-width: min(540px, 100%);
   background: rgba(16, 21, 34, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 18px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.controls-row {
+  display: grid;
+  gap: 16px;
+}
+
+.controls-row--primary {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.controls-row--secondary {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.controls-row--secondary#arpeggioControls {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .control {
@@ -96,6 +113,20 @@ select {
 
 .fretboard__legend span {
   text-align: center;
+  position: relative;
+}
+
+/* Fret marker dots */
+.fret-legend--marker::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
 }
 
 .fretboard__grid {
@@ -108,6 +139,21 @@ select {
   grid-template-columns: 48px repeat(25, minmax(32px, 1fr));
   gap: 8px;
   align-items: center;
+  position: relative;
+}
+
+/* Horizontal string line */
+.string-row::after {
+  content: '';
+  position: absolute;
+  left: 48px;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .string-label {
@@ -125,6 +171,8 @@ select {
   color: #78839a;
   font-size: 12px;
   border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  z-index: 1;
 }
 
 .note-cell--in-scale {
@@ -138,6 +186,7 @@ select {
   background: linear-gradient(120deg, rgba(246, 178, 87, 0.22), rgba(255, 120, 90, 0.3));
   border-color: rgba(246, 178, 87, 0.8);
   color: #fff3e4;
+  box-shadow: 0 6px 20px rgba(255, 120, 90, 0.4);
 }
 
 .note-cell--muted {
@@ -146,6 +195,12 @@ select {
 
 .note-cell--open {
   border-style: dashed;
+}
+
+.note-cell--playing {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(120, 165, 255, 0.6);
+  transition: transform 0.1s ease-out;
 }
 
 .ear-training {
@@ -287,6 +342,84 @@ select {
   100% { transform: scale(1); }
 }
 
+/* TODO Section */
+.todo-section {
+  background: rgba(16, 21, 34, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 32px;
+}
+
+.todo-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #94a0b7;
+  font-weight: 500;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-list li {
+  padding-left: 24px;
+  position: relative;
+  color: #7d879d;
+  font-size: 14px;
+}
+
+.todo-list li::before {
+  content: '□';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Footer */
+.app-footer {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.quote {
+  font-size: 16px;
+  font-style: italic;
+  color: #aab2c4;
+  margin: 0 0 8px 0;
+  line-height: 1.6;
+}
+
+.quote-author {
+  font-size: 14px;
+  color: #7d879d;
+  margin: 0;
+}
+
+.developer-credit {
+  margin-top: 24px;
+  font-size: 13px;
+  color: #626d83;
+}
+
+.developer-credit a {
+  color: #5682ff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.developer-credit a:hover {
+  color: #52d4ff;
+  text-decoration: underline;
+}
+
 @media (max-width: 900px) {
   .fretboard__legend,
   .string-row {
@@ -296,5 +429,9 @@ select {
   .ear-training__exercise {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .quote {
+    font-size: 14px;
   }
 }

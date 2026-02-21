@@ -15,44 +15,99 @@
           <p class="app__subtitle">选择调式与显示方式，完整呈现 24 品音位。</p>
         </div>
         <div class="app__controls">
-          <label class="control">
-            <span>Key</span>
-            <select id="keySelect">
-              <option value="C">C</option>
-              <option value="C#">C#</option>
-              <option value="D">D</option>
-              <option value="D#">D#</option>
-              <option value="E">E</option>
-              <option value="F">F</option>
-              <option value="F#">F#</option>
-              <option value="G">G</option>
-              <option value="G#">G#</option>
-              <option value="A">A</option>
-              <option value="A#">A#</option>
-              <option value="B">B</option>
-            </select>
-          </label>
-          <label class="control">
-            <span>模式</span>
-            <select id="modeSelect">
-              <option value="major">Major</option>
-              <option value="minor">Minor</option>
-            </select>
-          </label>
-          <label class="control">
-            <span>音阶</span>
-            <select id="scaleSelect">
-              <option value="heptatonic">基础 7 音</option>
-              <option value="pentatonic">五声音阶</option>
-            </select>
-          </label>
-          <label class="control">
-            <span>显示</span>
-            <select id="displaySelect">
-              <option value="note">固定音名</option>
-              <option value="degree">数字级数</option>
-            </select>
-          </label>
+          <div class="controls-row controls-row--primary">
+            <label class="control">
+              <span>内容</span>
+              <select id="viewMode">
+                <option value="scale">音阶</option>
+                <option value="arpeggio">琶音</option>
+              </select>
+            </label>
+            <label class="control">
+              <span>显示</span>
+              <select id="displaySelect">
+                <option value="note">音名</option>
+                <option value="degree">级数</option>
+              </select>
+            </label>
+          </div>
+          <div class="controls-row controls-row--secondary" id="scaleControls">
+            <label class="control">
+              <span>Key</span>
+              <select id="keySelect">
+                <option value="C">C</option>
+                <option value="C#">C#</option>
+                <option value="D">D</option>
+                <option value="D#">D#</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="F#">F#</option>
+                <option value="G">G</option>
+                <option value="G#">G#</option>
+                <option value="A">A</option>
+                <option value="A#">A#</option>
+                <option value="B">B</option>
+              </select>
+            </label>
+            <label class="control">
+              <span>模式</span>
+              <select id="modeSelect">
+                <option value="major">Major</option>
+                <option value="minor">Minor</option>
+              </select>
+            </label>
+            <label class="control">
+              <span>音阶类型</span>
+              <select id="scaleSelect">
+                <option value="heptatonic">7 音</option>
+                <option value="pentatonic">五声</option>
+              </select>
+            </label>
+          </div>
+          <div class="controls-row controls-row--secondary" id="arpeggioControls" style="display: none;">
+            <label class="control">
+              <span>和弦根音</span>
+              <select id="chordRoot">
+                <option value="C">C</option>
+                <option value="C#">C#</option>
+                <option value="D">D</option>
+                <option value="D#">D#</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="F#">F#</option>
+                <option value="G">G</option>
+                <option value="G#">G#</option>
+                <option value="A">A</option>
+                <option value="A#">A#</option>
+                <option value="B">B</option>
+              </select>
+            </label>
+            <label class="control">
+              <span>和弦类型</span>
+              <select id="chordType">
+                <optgroup label="三和弦">
+                  <option value="maj">Major</option>
+                  <option value="min">Minor</option>
+                  <option value="aug">Aug</option>
+                  <option value="dim">Dim</option>
+                </optgroup>
+                <optgroup label="七和弦">
+                  <option value="7">7</option>
+                  <option value="maj7">Maj7</option>
+                  <option value="m7">m7</option>
+                  <option value="m7b5">m7♭5</option>
+                  <option value="dim7">dim7</option>
+                </optgroup>
+                <optgroup label="扩展和弦">
+                  <option value="9">9</option>
+                  <option value="maj9">Maj9</option>
+                  <option value="m9">m9</option>
+                  <option value="6">6</option>
+                  <option value="m6">m6</option>
+                </optgroup>
+              </select>
+            </label>
+          </div>
         </div>
       </header>
 
@@ -87,6 +142,22 @@
         <div class="fretboard__legend" id="fretLegend"></div>
         <div class="fretboard__grid" id="fretGrid"></div>
       </section>
+
+      <section class="todo-section">
+        <h3>待实现功能 TODO</h3>
+        <ul class="todo-list">
+          <li>YouTube 伴奏播放器</li>
+          <li>优化练耳练习功能</li>
+        </ul>
+      </section>
+
+      <footer class="app-footer">
+        <p class="quote">"Don't worry, don't compare, don't expect too fast, be kind to yourself."</p>
+        <p class="quote-author">— Tomo Fujita</p>
+        <p class="developer-credit">
+          Developed by <a href="https://github.com/guochenmeinian" target="_blank" rel="noopener noreferrer">guochenmeinian</a>
+        </p>
+      </footer>
     </main>
 
     <script src="script.js"></script>

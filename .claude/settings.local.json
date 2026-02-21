@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "WebSearch",
+      "WebFetch(domain:www.musicianposter.com)",
+      "WebFetch(domain:blog.revoguitarstraps.com)",
+      "Bash(lsof:*)",
+      "Bash(node:*)",
+      "Bash(git stash:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}
